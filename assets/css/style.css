@@ -79,6 +79,7 @@ form {
   align-items: center;
   justify-content: center;
 
+  line-height: 100%;
   color: var(--gray-200);
 }
 
