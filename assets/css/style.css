@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --bg-color: #121214;
+  --white: #FFFFFF;
+
+  --gray-100: #E1E1E6;
+  --gray-200: #8C8C99;
+  --gray-300: #7C7C8A;
+  --gray-400: #323238;
+
+  --success: #1d8841;
+  --purple-light: #8257E5;
+  --purple-mid: #633BBC;
+
+  font-size: 62.5%;
+}
+
+html, body, input, textarea, button {
+  font-size: 1.6rem;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+}
+
+form {
+  padding: 3.2rem;
+  border: 1px solid var(--gray-100);
+  border-radius: .6rem;
+
+  overflow: hidden;
+}
+
+.step-progress {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+
+  border-bottom: 1px solid var(--gray-100);
+  padding-bottom: 3.2rem;
+
+  counter-reset: step;
+}
+
+.step-progress strong {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+
+  color: var(--gray-200)
+}
+
+.step-progress strong.active {
+  color: var(--gray-400);
+}
+
+.step-progress strong::before {
+  counter-increment: step;
+  content: counter(step);
+  font-size: 1.4rem;
+  
+  background: var(--gray-100);
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gray-200);
+}
+
+.step-progress .active::before {
+  background: var(--purple-mid);
+  color: var(--white);
+}
+
+.step-progress .done::before {
+  content: '✓';
+  background-color: var(--success);
+  color: var(--white);
+  font-size: 1.8rem;
+}
+
+.content {
+  margin-top: 3.2rem;
+  
+  display: grid;
+  gap: 1.6rem;
+}
+
+.button-wrapper {
+  margin-top: 3.2rem;
+  
+  display: flex;
+  justify-content: space-between;
+  gap: .8rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 3.2rem;
+
+  border: 0;
+  border-radius: .6rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  min-width: 15.8rem;
+
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--purple-mid);
+  color: var(--white);
+}
+
+.primary:hover {
+  background: var(--purple-light);
+}
+
+.secondary {
+  background: 0;
+  color: var(--purple-mid);
+  border: 1px solid var(--purple-mid);
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+label {
+  font-weight: 700;
+  color: var(--gray-400);
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: .4rem;
+
+  padding: 1.6rem;
+
+  border: 1px solid var(--gray-100);
+  border-radius: .6rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--gray-200);
+}
+
+input:focus, textarea:focus {
+  outline: 1.8px solid var(--purple-mid);
+}
+
+textarea {
+  min-height: 5.4rem;
+  resize: vertical;
+}
+
+@keyframes appear {
+  0% {
+    scale: .7;
+    opacity: 0;
+  }
+}
+
+.form-step.active {
+  animation: appear 200ms 100ms ease-in-out backwards;
+}
+
+@keyframes slideout {
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+.form-step {
+  animation: slideout 200ms ease-in-out forwards;
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Multi Step Form</title>
+</head>
+<body>
+  <main id="app">
+    <form>
+      <div class="step-progress">
+        <strong class="active" data-step>Contato</strong>
+        <img src="assets/icon/angle-right.svg" alt="">
+        <strong data-step>Empresa</strong>
+        <img src="assets/icon/angle-right.svg" alt="">
+        <strong data-step>Projeto</strong>
+      </div>
+
+      <div class="form-step active">
+        <div class="content">
+          <div class="input-wrapper">
+            <label for="name">Nome</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Como prefere ser chamado"
+              required
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="phone">Celular</label>
+            <input
+              id="phone"
+              name="phone"
+              type="text"
+              placeholder="Digite seu número de WhatsApp"
+              onkeypress="return /\d/.test(event.key)"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </div>
+        </div>
+        <div class="button-wrapper justify-end">
+          <button type="button" class="btn primary" data-action="next">Continuar</button>
+        </div>
+      </div>
+
+      <div class="form-step hide">
+        <div class="content">
+          <div class="input-wrapper">
+            <label for="name">Nome da empresa</label>
+            <input
+              id="bussiness-name"
+              name="bussiness-name"
+              type="text"
+              placeholder="Qual é o nome da empresa"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="bussines-colab-number">Número de funcionários</label>
+            <input
+              id="bussines-colab-number"
+              name="bussines-colab-number"
+              type="text"
+              placeholder="Digite o número de funcionários"
+              onkeypress="return /\d/.test(event.key)"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="bussiness-about">Sobre seu negócio</label>
+            <textarea
+              name="bussiness-about"
+              id="bussiness-about"
+              rows="4"
+              placeholder="Fale um pouco sobre seus produtos ou serviços"
+            ></textarea>
+          </div>
+        </div>
+        <div class="button-wrapper">
+          <button type="button" class="btn secondary" data-action="prev">Voltar</button>
+          <button type="button" class="btn primary" data-action="next">Continuar</button>
+        </div>
+      </div>
+
+      <div class="form-step hide">
+        <div class="content">
+          <div class="input-wrapper">
+            <label for="project">Objetivos do projeto</label>
+            <textarea
+              id="project"
+              name="project"
+              rows="4"
+              placeholder="Descreva quais os objetivos desse projeto"
+            ></textarea>
+          </div>
+        </div>
+        <div class="button-wrapper">
+          <button type="button" class="btn secondary" data-action="prev">Voltar</button>
+          <button class="btn primary" type="submit">Enviar proposta</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
